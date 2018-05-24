@@ -2,14 +2,10 @@ package main
 
 import (
 	"flag"
-	"strings"
-	// rename use os.Rename
-	"os"
-	// rename use commands
-	_ "os/exec"
-	// check Walk/WalkFunc
 	"fmt"
-	"io/ioutil"
+	"os"
+	"strings"
+	// "io/ioutil"
 	"path/filepath"
 )
 
@@ -28,17 +24,15 @@ func main() {
 	} else {
 		current = *dir
 	}
-	fi, _ := ioutil.ReadDir(current)
-	for _, f := range fi {
-		fmt.Println(f.Name(), f.IsDir())
-	}
+	// fi, _ := ioutil.ReadDir(current)
+	// for _, f := range fi {
+	// 	fmt.Println(f.Name(), f.IsDir())
+	// }
 	fmt.Println()
 	fmt.Println("start walking")
 	count := 0
 	err := filepath.Walk(current, func(path string, info os.FileInfo, err error) error {
 		if info.IsDir() {
-			// fmt.Println("find dir: ", info.Name(), "with path: ", path)
-			// return filepath.SkipDir
 			return nil
 		}
 		fileName := info.Name()

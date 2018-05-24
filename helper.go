@@ -6,8 +6,6 @@ import (
 	"path"
 	"path/filepath"
 	"regexp"
-	// rename use os.Rename
-	//"os"
 )
 
 // return the current dir where you are to run the binary
