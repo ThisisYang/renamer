@@ -14,6 +14,7 @@ func getPWD() (string, error) {
 	return dir, err
 }
 
+//
 // return the dir of binary no matter where you run it
 func getBinaryPath() (string, error) {
 	dir, err := os.Executable()

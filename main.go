@@ -37,7 +37,8 @@ func main() {
 		}
 		fileName := info.Name()
 		if match(fileName) {
-			fmt.Println("find file: ", info.Name(), "with path: ", path)
+			currDir := filepath.Dir(path)
+			fmt.Println("find file: ", info.Name(), "within path: ", path, " dir: ", currDir)
 			newName := formNewName(fileName, count)
 			newPath := strings.Replace(path, fileName, newName, -1)
 			err := rename(path, newPath)
