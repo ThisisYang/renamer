@@ -8,6 +8,8 @@ import (
 	"regexp"
 )
 
+var r = regexp.MustCompile("\\s\\(\\d+\\sof\\s\\d+\\)")
+
 // return the current dir where you are to run the binary
 func getPWD() (string, error) {
 	dir, err := os.Getwd()
@@ -29,7 +31,6 @@ func absBinary() (string, error) {
 
 // match func check if a file match this pattern
 func match(fileName string) bool {
-	r := regexp.MustCompile("\\s\\(\\d+\\sof\\s\\d+\\)")
 	return r.MatchString(fileName)
 }
 
